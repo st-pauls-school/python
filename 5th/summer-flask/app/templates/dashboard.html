@@ -5,9 +5,14 @@
     <ul>
     {% if headlines %}
     	{% for headline in headlines %}
-    	<li>{{ headline.module }} : {{ headline.headline }}</li>
+    	<li>{{ headline.module }} : {{ headline.headline | safe }}</li>
     	{% endfor %}
     {% endif %}
 	</ul>
+
+<h3>Dashboard thoughts</h3>
+<ul>
+	<li></li>
+</ul>
 
 {% endblock %}

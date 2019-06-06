@@ -9,7 +9,11 @@ def index():
 	modules = ['sample']
 	headlines = []
 	for m in modules: 
+		# run the module code - https://stackoverflow.com/questions/8718885/import-module-from-string-variable 
 		mymodule = importlib.import_module(m)
+
+		# The incoming HTML needs to be handled carefully - it will be assumed safe, which might be dangerous 
+		#   https://stackoverflow.com/a/28489615/2902 
 		headlines.append({'module' : m, 'headline' : mymodule.headline()})
 
 
