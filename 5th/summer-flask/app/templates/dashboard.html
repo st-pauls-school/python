@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Dashboard</h1>
+    <ul>
+    {% if headlines %}
+    	{% for headline in headlines %}
+    	<li>{{ headline.module }} : {{ headline.headline }}</li>
+    	{% endfor %}
+    {% endif %}
+	</ul>
+
+{% endblock %}
