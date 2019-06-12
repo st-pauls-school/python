@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>{{ title }} - Dashboard</title>
+        {% if next %}
+        <meta http-equiv="refresh" content="30; URL='/{{ next }}'" />
+        {% else %}
+        <meta http-equiv="refresh" content="30" />
+        {% endif %}
+    </head>
+    <body>
+
+    	{% block content %}{% endblock %}
+
+    	<h3>General Things To Do</h3>
+        <ul>
+            <li>Loop through the modules and call their headline functions (in the code) </li>
+            <li>A timestamp</li>
+            <li>link to the drill down</li>
+            <li>Some examples</li>
+            <li>consider a CSS for the formatting of the headlines list </li>
+        </ul>
+    </body>
+</html>
