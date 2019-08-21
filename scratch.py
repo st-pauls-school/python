@@ -1,5 +1,12 @@
 
 
-li = ["stu{0}".format(x+1) for x in range(30)]
 
-print(li)
+s = "ab .,cd.ef,gh"
+for c in s: 
+	if not (ord('a') <= ord(c) <= ord('z')):
+		s = s.replace(c, "")
+
+
+
+
+print(s)

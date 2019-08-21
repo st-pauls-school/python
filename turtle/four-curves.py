@@ -21,3 +21,4 @@ def curves(height, step):
     wn.mainloop()
 
 
+curves(800, 20)
