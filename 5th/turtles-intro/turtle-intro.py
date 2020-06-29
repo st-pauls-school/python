@@ -1,17 +1,27 @@
 #the turtle library
 import turtle             
 
-def simple():
-    # create the window for the turtle to exist in - careful, it is case-sensitive!
-    wn = turtle.Screen()
-    
-    # create a turtle and assign it to a variable
-    # this one   
-    a = turtle.Turtle()    
+# run (F5) this file
 
-    # move the turtle around, left and right (i.e. anti-clockwise and clockwise) using degrees,
-    # forward (and backwards) are approximately pixels
+# type one of the function names from the shell 
+
+# note that if you close the turtle window, you will need to re-run this
+
+# to make new functions, copy the simple() function and replace the text in between the comments to do
+# the different new movements 
+
+def simple():
+    # create the screen for the turtle to exist in 
+    ts = turtle.getscreen()
     
+    # create a turtle, assign to a variable  
+    a = turtle.getturtle()    
+
+    # code below here moves the turtle around
+
+    # move the turtle around, left and right use degrees, forward
+    # (and backwards) are approximately pixels 
+
     # at the beginning the turtle points to the right, in middle of the screen
     a.forward(50)
     # turn 90 degrees left, so it now points up 
@@ -23,21 +33,14 @@ def simple():
     # go back, i.e. to the right 
     a.backward(100)
     
-    # stamp the shape
-    a.stamp()
+    # code above here moves the turtle around
     
-    # lift the turtle off the canvas
-    a.penup()
-    
-    # move out of the way
-    a.forward(200) 
-    
-    # this is an infinite loop - hit control-c to exist the window 
-    wn.mainloop()
+    # loop around - hit control-c to exit the function back to the shell 
+    ts.mainloop()
 
 
 def triangle():
-    wn = turtle.Screen()
+    ts = turtle.getscreen()
     a = turtle.Turtle()    
 
     a.forward(80)             
@@ -47,14 +50,17 @@ def triangle():
     a.forward(80)
     a.left(120)
 
-    wn.mainloop()
+    ts.mainloop()
+    
 
 def triangle2():
-    wn = turtle.Screen()
-    wn.bgcolor("lightblue")
-    wn.title("Playground")
+    ts = turtle.getscreen()
 
-    a = turtle.Turtle()    
+    a = turtle.getturtle()    
+
+
+    ts.bgcolor("lightblue")
+    ts.title("Playground")
 
     a.color("hotpink")
     a.pensize(5)
@@ -66,20 +72,8 @@ def triangle2():
     a.forward(80)
     a.left(120)
 
-    wn.mainloop()
+    ts.mainloop()
 
-def triangleLoop():
-    wn = turtle.Screen()
-    wn.bgcolor("lightblue")
-    wn.title("Playground")
 
-    a = turtle.Turtle()    
 
-    a.color("hotpink")
-    a.pensize(5)
- 
-    for i in range(3):
-        a.forward(80)             
-        a.left(120)
 
-    wn.mainloop()
