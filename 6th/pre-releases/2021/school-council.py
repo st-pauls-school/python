@@ -4,15 +4,17 @@ import uuid
 
 # task 1 
 # 5 years groups, y7-y11: 28-35 students per tutor group, 6 tutor groups, e.g. 7A
-
 # each students may only vote for a rep from their tutor group 
 
+
+# generate all the possible tutor group names 
 def tutor_groups():
 	yeargroups = [str(y) for y in range(7,12)]
 	tutors = [chr(t + ord('A')) for t in range(6)]
 	tgs = list(itertools.product(yeargroups, tutors)) 
 	return [t[0]+t[1] for t in tgs]
 
+# if user input is expected, loop until a valid (case sensitive) tutor group is received, otherwise return a randomly chosen group 
 def input_tutorgroup(user = False):
 	tgs = tutor_groups()
 	if user: 
@@ -20,14 +22,16 @@ def input_tutorgroup(user = False):
 			tg = input("Name of the tutor group: ")
 			if tg in tgs:
 				return tg
-			print("That's not a valid tutor group.")
+			print("That's not a valid tutor group. (I am case sensitive.)")
 	else: 
 		return random.choice(tgs)
 
 
+# use the private function to return a number between 28 and 35 
 def input_tutorgroup_size(tg, user = False):
 	return input_random_range("Number in " + tg + ": ", 28, 35)
 
+# grab a number between 1 and 4 and then gather names or generate suitable values 
 def input_tutorgroup_candidates(tg, user = False):
 	sz = input_random_range("Number of candidates in " + tg + ": ", 1, 4)
 	if user: 
@@ -38,6 +42,7 @@ def input_tutorgroup_candidates(tg, user = False):
 	else: 
 		return [tg+"-"+str(x+1) for x in range(sz)]
 
+# take in a number in a given range, or return a random number in that range 
 def input_random_range(msg, lb, ub, user = False):
 	if user:
 		while True:
@@ -50,6 +55,8 @@ def input_random_range(msg, lb, ub, user = False):
 	else: 
 		return random.randint(lb,ub)
 
+# for the given number of voters (sz) and the avaiable candidates (cands), take in the user input (or random choice)
+# with optional arguments, ids, for the voter codes in task 2 
 def tutorgroup_vote(sz, cands, user = False, ids = []):
 	votes = {key:0 for key in cands}
 	votes["abstain"] = 0
@@ -90,7 +97,7 @@ def tutorgroup_vote(sz, cands, user = False, ids = []):
 
 	return votes
 
-		
+# track the highest non-abstention total and the list of candidates with that total
 def winning_candidates(votes):
 	highest = -1
 	candidates = [] 
@@ -104,11 +111,13 @@ def winning_candidates(votes):
 			candidates = [k]
 	return candidates 
 
+# task 2 - generate random codes for each of the students 
 def voter_numbers(tgsz,sz = 12):
 	# generate according to RFC4122 - https://tools.ietf.org/html/rfc4122 
 	return [uuid.uuid4().hex[:sz] for _ in range(tgsz)]
 
 
+# print a summary and return a boolean as to whether there was a clear winner 
 def summarise(tgsz, votes, winners):
 	cast = tgsz - votes["abstain"]
 	for k in votes:
@@ -123,14 +132,17 @@ def summarise(tgsz, votes, winners):
 
 
 
+# generate the task 1 values 
 tg = input_tutorgroup()
 tgsz = input_tutorgroup_size(tg)
+# generate the task 2 codes 
 votercodes = voter_numbers(tgsz)
 cands = input_tutorgroup_candidates(tg)
 
 print(tg, tgsz, cands)
 print(votercodes)
 
+# generate the task 3 output 
 while True: 
 	votes = tutorgroup_vote(tgsz, cands)
 	print(votes)
