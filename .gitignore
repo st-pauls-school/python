@@ -102,3 +102,10 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# HousePython
+HousePython/credentials.json
+HousePython/token.json
+HousePython/house-scoreboard.xml
+HousePython/house-scoreboard-term.xml
+HousePython/gsheet/
