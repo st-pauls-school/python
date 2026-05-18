@@ -1,0 +1,24 @@
+# this library contains functions about manipulating objects that represent dates 
+import datetime 
+
+# create a datetime object from a given year, month date
+today = datetime.datetime(2026, 5, 8)
+
+# use the weekday function 
+weekday = today.weekday()
+
+# print the number - Monday is 0 
+print(weekday)
+
+# the timedelta object allows us to add an amount on to a date, months, years, weeks are all valid too 
+tomorrow = today + datetime.timedelta(days=1)
+
+tomorrowday = tomorrow.weekday()
+print(tomorrowday)
+
+# writing the date out using a format string, different codes can grab the different aspects of the date - more here: https://www.w3schools.com/python/python_datetime.asp
+format = '%A %Y-%m-%d'
+
+# output it nicely 
+print(f"if today is {today:%A %Y-%m-%d}")
+print(f"tomorrow will be {tomorrow:%A %Y-%m-%d}")

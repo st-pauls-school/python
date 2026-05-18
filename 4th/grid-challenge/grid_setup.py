@@ -92,7 +92,7 @@ def colour_here():
     return _dots.get((col, row), "none")
 
 
-def _count_student_lines():
+def _count_code_lines():
     try:
         with open(sys.argv[0]) as f:
             lines = f.readlines()
@@ -117,7 +117,7 @@ def done():
     print(f"\n{'Challenge complete!' if on_finish else 'Not quite!'}")
     print(f"  Finished on {_finish_colour}: {'yes' if on_finish else 'no'}")
     print(f"  Moves made:    {_move_count}")
-    student_lines = _count_student_lines()
-    if student_lines is not None:
-        print(f"  Lines written: {student_lines}")
+    written_lines = _count_code_lines()
+    if written_lines is not None:
+        print(f"  Lines written: {written_lines}")
     turtle.done()
