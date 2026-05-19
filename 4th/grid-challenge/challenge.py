@@ -17,7 +17,7 @@ from grid_setup import *
 # 13  Write a zigzag() function (right, up, right, down) and use a loop to collect each dot
 # 14  Visit each corner of the rectangle — try writing a move_right_n(n) helper
 
-start(1)
+start(3)
 
 # --- write your code below here ---
 
@@ -27,7 +27,8 @@ start(1)
 # move_down()        move one step down
 # colour_here()      returns the colour of the dot at the current position (or "none")
 
-
+move_right()
+move_right()
 
 # --- do not change anything below this line ---
 done()
